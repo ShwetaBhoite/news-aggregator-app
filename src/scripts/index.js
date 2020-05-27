@@ -19,6 +19,7 @@ const res = await fetch(
     });
   } 
 }
+
 News();
 
 
