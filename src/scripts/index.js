@@ -26,7 +26,7 @@ News();
 $(document).ready(function() {
     $('#search').keypress(() => {
         let searchField = $("#search").val();
-        const url2 = `https://newsapi.org/v2/everything?q=${searchField}&apiKey=396f24a36ea64c608de1d62b555ac1c4';
+        const url2 = `https://newsapi.org/v2/everything?q=${searchField}&apiKey=f918314957e941498ef9c737d29e168e';
 
         if (searchField !== "") {
             $.ajax({
