@@ -1,42 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>News Aggregator</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    <link rel="stylesheet" type="text/css" href="./styles/index.css">
-    <link rel="stylesheet" type="text/css" href="./styles/reset.css">
-</head>
 
-<body>
-    <h1 class="title">News Aggregator</h1>
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
 
-    <div class="searchtxt">
-        <input type="text" id="search" placeholder="Type and press enter to search..." />
-    </div>
+    <!--BOOTSTRAP CSS PATH BELOW-->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <!--local css files-->
+    <!-- <link rel="stylesheet" href="styles/index.css"> -->
+  </head>
+  <body onload="beforeLoad()">
+    <header class="text-center">
+      <h1 class="bg-secondary text-white rounded" id="news-header">
+        NEWS AGGREGATOR
+      </h1>
+      <h6><button id="toggler" class="btn btn-info">Dark Mode</button></h6>
+    </header>
+    <button class="btn btn-primary rounded" id="myBtn" title="Go to top">
+      <i class="material-icons"> arrow_upward </i>Top
+    </button>
+    <main class="container text-center">
+      <br />
+      <input
+        id="search"
+        placeholder="Type and press enter to search..."
+        type="text"
+        class="border border-danger rounded"
+      />
+      <hr />
+      <br />
+      <!-- <button id="search-btn" class="btn btn-danger" onclick="searchValue()">Search</button>
+      <button id="clear-btn" class="btn btn-primary" onclick="fetchNews('top-headlines?country=in')">Clear</button> -->
 
-    <ul id="news-articles">
-        <li class="article" style="display:none;">
-            <img class="article-img" src="" />
+      <div id="loader-wrapper">
+        <div id="loader"></div>
+        <!-- <div id="loader2"></div> -->
+      </div>
+      <section id="news-section"></section>
+    </main>
 
-            <h2 class="article-title"></h2>
+    <script>
+      //function for loader
+      var myVar;
+      function beforeLoad() {
+        document.getElementById("loader-wrapper").style.display = "flex";
+        document.getElementById("news-section").style.display = "none";
+        myVar = setTimeout(afterLoad, 1500);
+      }
 
-            <p class="article-description"></p>
+      function afterLoad() {
+        document.getElementById("loader-wrapper").style.display = "none";
+        document.getElementById("news-section").style.display = "block";
+      }
+    </script>
 
-            <span class="article-author"></span>
-
-            <a class="article-link" href="" target="_blank"></a>
-        </li>
-    </ul>
-
-    <h3 class="not-found">No article was found based on the search.</h3>
-
-    <script src="./scripts/index.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-</body>
-
-    
+    <!--Local js file linked-->
+    <script src="src\scripts\index.js"></script>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
+  </body>
 </html>
